@@ -10,4 +10,7 @@ urlpatterns = [
 	path("account/", views.AccountView, name="account"),
 	path("checkout/", views.CheckOutView, name="checkout"),
 
+	path("find/", views.FindView, name="find"),
+	path("result/<str:domain_name>/", views.ResultView, name="result"),
+	path("buy/<str:domain_name>/", views.BuyView, name="buy"),
 ]

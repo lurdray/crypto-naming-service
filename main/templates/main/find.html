@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+    
+
+    <!-- Domain Search section -->
+    <div class="search-domain domain-page">
+        <div class="custom-width">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="text">
+                        <h4>Search perfect domain name</h4>
+                        <p>Get your perfect domain name starting from <span class="green-color">10$</span> for the
+                            first
+                            year and free domain privacy included</p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="domain-input">
+                        
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input name="domain_name" placeholder="Search your perfect .brise domain name..." class="form-control" id="domain">
+                                <button class="btn btn-domain" type="submit">Search Now</button>
+                            </div>
+                            
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Domain Search section ends here -->
+
+     
+
+{% endblock %}

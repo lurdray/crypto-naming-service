@@ -1,0 +1,93 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+    
+
+    <!-- Domain Search section -->
+    <div class="search-domain domain-page">
+        <div class="custom-width">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="text">
+                        <h4>Search perfect domain name</h4>
+                        <p>Get your perfect domain name starting from <span class="green-color">10$</span> for the
+                            first
+                            year and free domain privacy included</p>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="domain-input">
+                        <form action="#">
+                            <div class="form-group">
+                                <input placeholder="Search your perfect .brise domain name..." class="form-control" id="domain">
+                                <button class="btn btn-domain" type="submit">Search Now</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Domain Search section ends here -->
+
+    <!-- Doamin boxes -->
+    <div class="boxes-two domain-boxes padding-top50 padding-bottom50">
+        <div class="custom-width">
+            <!-- Row one -->
+            <div class="row">
+                <h1>You are about to purchase a name({{ domain_name }})</h1>
+            </div>
+            <div class="row">    
+                <div class="col-sm-12">
+                    <div class="box-container lighter-bg">
+                        <div class="box-title">
+                            <h4><i class="fa fa-cloud"></i>{{ domain_name }}{{ domain_name|json_script:"domain_name" }}.brise</h4>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    <!-- Domain boxes section ends here -->
+
+    
+
+
+    <style>
+
+        .btn {
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+        }
+        
+        .enableEthereumButton {
+          background-color: #037dd6;
+        }
+        .sendEthButton {
+          background-color: #4CAF50;
+        }
+        
+        </style>
+        
+        
+        <button class="enableEthereumButton btn">Connect Metamask</button>
+        <button class="sendEthButton btn">Buy Domain</button>
+        <h3>Account: <span class="showAccount"></span></h3>
+        
+        <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+        <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+        <script src="{% static 'js/index.js' %}"></script>
+
+        
+     
+
+{% endblock %}

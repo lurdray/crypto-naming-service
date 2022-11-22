@@ -8,24 +8,18 @@
     <div class="search-domain domain-page">
         <div class="custom-width">
             <div class="row">
-                <div class="col-sm-5">
-                    <div class="text">
-                        <h4>Search perfect domain name</h4>
-                        <p>Get your perfect domain name starting from <span class="green-color">10$</span> for the
-                            first
-                            year and free domain privacy included</p>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="domain-input">
-                        <form action="#">
-                            <div class="form-group">
-                                <input placeholder="Search your perfect .brise domain name..." class="form-control" id="domain">
-                                <button class="btn btn-domain" type="submit">Search Now</button>
-                            </div>
-                            
-                        </form>
-                    </div>
+                
+                <div class="col-sm-12 col-xs-12 col-12">
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input style="color: white;" name="domain_name" placeholder="Search your perfect .brise domain name..." class="form-control" id="domain">
+                            <button class="btn btn-domain" type="submit">Search Now</button>
+                        </div>
+                        
+                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -37,36 +31,42 @@
         <div class="custom-width">
             <!-- Row one -->
             <div class="row">
-                <div class="col-sm-10">
-                    <div class="text">
-                        <h4>Status</h4>
-                        {% if available %}
-                            <p>This Name is Available</p>
-                        {% else %}
-                            <p>This Name is Not Available</p>
-                        {% endif %}
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">    
-                <div class="col-sm-12">
+
+                <div class="col-sm-4">
+
                     <div class="box-container lighter-bg">
                         <div class="box-title">
-                            <h4><i class="fa fa-cloud"></i> {{ domain_name }}.brise</h4>
+                            <p style="text-align:center;color: #be7b2e;">Status:
+                        {% if available %}
+                            <span>Available</span>
+                        {% else %}
+                            <span>Not Available</span><br />
+                            <p>Taken by {{ name_address }}</p>
+                        {% endif %}
+                        </p>
+                        <h4 style="text-align:center"><i class="fa fa-user"></i> {{ domain_name }}.brise</h4>
+                        <table class="table table-striped" style="width:100%">
+                    
+                        <tr data-aos="fade-up" data-aos-delay="50" style="justify-content: space-between; color: #fff;">
+                            <td>Cost:</td>
+                            <td> {{ name_price }}(brise)</td>
+                        
+                        </tr>
+
+                        </table>
                         </div>
-                        <ul>
-                            <li>Listed by (admin)</li>
-                            
-                        </ul>
-                        <div sclass="buttons">
-                            <a href="#" class="btn btn-green btn-small">Cost: {{ name_price }}(brise) <i class="fa fa-long-arrow-alt-right"></i></a>
+                        
+                        <div class="buttons">
+                            <a href="#" class="btn btn-green btn-small">Total: {{ name_price }}(brise)<i class="fa fa-long-arrow-alt-right"></i></a>
                             <a {% if available %} href="{% url 'main:buy' domain_name %}" {% else %} href="#" {% endif %} class="btn btn-outline btn-small"><i class="bi bi-cart-plus-fill"></i> Buy Now</a>
                         </div>
                     </div>
                 </div>
                 
+                
+                
             </div>
+            
             
         </div>
     </div>

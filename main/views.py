@@ -81,7 +81,9 @@ def FindView(request):
 def ResultView(request, domain_name):
 
 	if request.method == "POST":
-		pass
+		domain_name = request.POST.get("domain_name")
+
+		return HttpResponseRedirect(reverse("main:result", args=[domain_name,]))
 
 	else:
 		name_address = GetAddress(domain_name)
@@ -93,7 +95,10 @@ def ResultView(request, domain_name):
 		
 		name_price = GetPrice(domain_name)
 
-		context = {"domain_name": domain_name, "available": available, "name_price": name_price}
+
+		context = {"domain_name": domain_name, "available": available,
+		"name_price": name_price, "name_address": name_address}
+
 		return render(request, "main/result.html", context )
 
 
@@ -107,4 +112,18 @@ def BuyView(request, domain_name):
 
 		context = {"domain_name": domain_name}
 		return render(request, "main/buy.html", context )
+
+
+
+def FinishView(request):
+
+	if request.method == "POST":
+		domain_name = request.POST.get("domain_name")
+
+		return HttpResponseRedirect(reverse("main:result", args=[domain_name,]))
+
+	else:
+
+		context = {}
+		return render(request, "main/finish.html", context )
 

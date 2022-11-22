@@ -13,4 +13,5 @@ urlpatterns = [
 	path("find/", views.FindView, name="find"),
 	path("result/<str:domain_name>/", views.ResultView, name="result"),
 	path("buy/<str:domain_name>/", views.BuyView, name="buy"),
+	path("finish/", views.FinishView, name="finish"),
 ]
